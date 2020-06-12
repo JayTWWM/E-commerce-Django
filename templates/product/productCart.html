@@ -1,0 +1,23 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+    <div class="testbox">
+            
+        <div>
+            <h2 style="text-align:center">{{ object.seller }}</h2>
+
+            <div class="card">
+                <form method="POST" action="added"> {% csrf_token %}
+                    <img src="{{ object.picLink }}" alt="{{ object.name }}" style="width:100%">
+                    <h2>{{ object.name }}</h2>
+                    <p class="price">${{ object.price }}</p>
+                    <p>{{ object.description }}</p>
+                    <p><button disabled>Added to Cart</button></p>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+{% endblock content %}

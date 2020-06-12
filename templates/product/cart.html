@@ -1,0 +1,35 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+
+    <div class="testbox">
+			
+        <form method="POST" action="{{ object.id }}/"> {% csrf_token %}
+
+            <div class="colums">
+
+                {% for object in obj %}
+                
+                    <div>
+                        <h2 style="text-align:center">{{ object.seller }}</h2>
+
+                        <div class="card">
+                            <img src="{{ object.picLink }}" alt="{{ object.name }}" style="width:100%">
+                            <h2>{{ object.name }}</h2>
+                            <p class="price">${{ object.price }}</p>
+                            <p>{{ object.description }}</p>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+            <br>
+            <br>
+            <center><button disabled> CheckOut </button></center>
+
+        </form>
+
+    </div>
+
+{% endblock content %}

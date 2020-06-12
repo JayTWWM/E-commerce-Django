@@ -1,0 +1,58 @@
+{% extends 'product/base.html' %}
+
+{% block content %}
+  <div class="testbox">
+      <form action="" method="POST"> {% csrf_token %}
+        <div class="banner">
+          <h1>Product Registration</h1>
+        </div>
+        <div class="colums">
+          <div class="item">
+            {{ form.name.label }}
+            {{ form.name }}
+          </div>
+          <div class="item">
+            {{ form.seller.label }}
+            {{ form.seller }}
+          </div>
+          <div class="item">
+            {{ form.picLink.label }}
+            {{ form.picLink }}
+          </div>
+          <div class="item">
+            {{ form.price.label }}
+            {{ form.price }}
+          </div>
+          <div>
+            {{ form.discounted.label }}
+            {{ form.discounted }}
+          </div>
+          <div class="item">
+            {{ form.discount.label }}
+            {{ form.discount }}
+          </div>
+          <div>
+            {{ form.active.label }}
+            {{ form.active }}
+          </div>
+          <div>
+            {{ form.date.label }}
+            {{ form.date }}
+          </div>
+        </div>
+        <div class="item">
+        {{ form.description.label }}
+        {{ form.description }}
+        </div>
+        <br>
+        <center class="message">{{form.errors}}</center>
+        
+        {% for message in messages %}
+            <center class="message">{{message}}</center>
+        {% endfor %}
+        <div class="btn-block">
+          <input type='submit' value='Save' />
+        </div>
+      </form>
+    </div>
+{% endblock content %}
